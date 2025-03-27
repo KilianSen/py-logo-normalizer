@@ -1,8 +1,9 @@
-from typing import Sequence
-from cv2 import Mat
-import numpy as np
+import typing
+import cv2
+import numpy
 
-def merge(contours: Sequence[Mat]) -> Mat:
+
+def merge(contours: typing.Sequence[cv2.Mat]) -> cv2.Mat:
     s_x, m_x = None, None
     s_y, m_y = None, None
 
@@ -17,4 +18,4 @@ def merge(contours: Sequence[Mat]) -> Mat:
             if m_y is None or point[0][1] > m_y:
                 m_y = point[0][1]
 
-    return Mat(np.array([[[s_x, s_y]], [[m_x, s_y]], [[m_x, m_y]], [[s_x, m_y]]]))
+    return cv2.Mat(numpy.array([[[s_x, s_y]], [[m_x, s_y]], [[m_x, m_y]], [[s_x, m_y]]]))
