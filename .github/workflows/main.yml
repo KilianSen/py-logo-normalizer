@@ -55,7 +55,6 @@ jobs:
       - name: Download Artifacts
         uses: actions/download-artifact@v4
         with:
-          pattern: '*-executable'
           path: ./dist
 
       - name: List Artifacts
@@ -73,6 +72,6 @@ jobs:
         with:
           tag_name: v${{ github.run_number }}
           files: |
-            ./*
+            ./dist/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
