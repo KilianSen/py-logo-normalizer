@@ -52,11 +52,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - name: Download Artifacts
         uses: actions/download-artifact@v4
+        with:
+          path: ./dist
 
       - name: List Artifacts
-        run: ls -R ./
+        run: ls -R ./dist
 
       - name: Create tag
         run: |
@@ -70,6 +73,7 @@ jobs:
         with:
           tag_name: v${{ github.run_number }}
           files: |
-            *
+            ./dist/ubuntu-latest-executable/*
+            ./dist/windows-latest-executable/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
