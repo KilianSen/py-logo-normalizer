@@ -56,7 +56,7 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: List Artifacts
-        run: ls -R ./dist
+        run: ls -R ./
 
       - name: Create tag
         run: |
