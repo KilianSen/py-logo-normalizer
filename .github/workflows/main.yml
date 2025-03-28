@@ -73,7 +73,7 @@ jobs:
         with:
           tag_name: v${{ github.run_number }}
           files: |
-            ./dist/ubuntu-latest-executable/*
+            ./dist/ubuntu-24.04-executable/*
             ./dist/windows-latest-executable/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
