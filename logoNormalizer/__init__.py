@@ -136,13 +136,12 @@ class Image:
         return s
 
     def extend(self, l, r, t, b, fill) -> 'Image':
-
         self.image = cv2.copyMakeBorder(self.image, t, b, l, r, cv2.BORDER_CONSTANT, value=[int(x) for x in list(fill)])
         self.invalidate_caches()
         return self
 
     def resize(self, size) -> 'Image':
-        self.image = cv2.resize(self.image, size)
+        self.image = cv2.resize(self.image, size, interpolation=cv2.INTER_AREA)
         self.invalidate_caches()
         return self
 

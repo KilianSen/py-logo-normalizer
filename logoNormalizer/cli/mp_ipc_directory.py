@@ -34,7 +34,7 @@ def directory(directory, percentage, resolution, output_dir, format, strict, dev
     console = Console()
     files = [os.path.join(directory, f) for f in os.listdir(directory) if
              os.path.isfile(os.path.join(directory, f)) and f.lower().endswith(
-                 ('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))]
+                 ('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif', ".webp"))]
 
     if not files:
         console.print("[yellow]No images found in directory.[/yellow]")
